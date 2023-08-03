@@ -12,12 +12,27 @@
 <body>
     <a class="skiplink" href="#map">Go to map</a>
     <div id="map" class="map" tabindex="0"></div>
+
+    <!-- BUTONLAR -->
     <button id="zoom-out">Zoom out</button>
     <button id="zoom-in">Zoom in</button>
+
+    <!-- FORM KISMI (Harita cizim tipi) -->
+    <form>
+        <label for="type">Geometry type &nbsp;</label>
+        <select id="type">
+            <option value="Point">Point</option>
+            <option value="LineString">LineString</option>
+            <option value="Polygon">Polygon</option>
+            <option value="Circle">Circle</option>
+        </select>
+    </form>
+
+    
     <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
     <script src="https://cdn.jsdelivr.net/npm/elm-pep@1.0.6/dist/elm-pep.js"></script>
     <script type="module" src="main.js"></script>
-
+    
 </body>
 
 </html>
