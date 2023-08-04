@@ -58,7 +58,6 @@ document.getElementById("zoom-out").addEventListener("click", function (){
     const zoom = view.getZoom();
     view.setZoom(zoom - 1);
 });
-
 document.getElementById("zoom-in").addEventListener("click", function(){
     const view = map.getView();
     const zoom = view.getZoom();
