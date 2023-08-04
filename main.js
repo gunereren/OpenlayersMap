@@ -53,16 +53,18 @@ function addInteractions() {
 }
 
 // ZOOM BUTON KONTROLLERI
-document.getElementById('zoom-out').onclick = function () {
+document.getElementById("zoom-out").addEventListener("click", function (){
     const view = map.getView();
     const zoom = view.getZoom();
     view.setZoom(zoom - 1);
-};
-document.getElementById('zoom-in').onclick = function () {
+});
+
+document.getElementById("zoom-in").addEventListener("click", function(){
     const view = map.getView();
     const zoom = view.getZoom();
     view.setZoom(zoom + 1);
-};
+})
+
 
 /**
  * Handle change event.
