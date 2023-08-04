@@ -30,8 +30,8 @@ const map = new Map({
     layers: [raster, vector],
     target: 'map',
     view: new View({
-        center: [3600000, 3900000],                     // Harita ilk açıldığında karşımıza çıkan konum
-        zoom: 3,                                        // Harita ilk açıldığında zoom miktarı
+        center: [0, 0],                     // Harita ilk açıldığında karşımıza çıkan konum
+        zoom: 2,                                        // Harita ilk açıldığında zoom miktarı
         extent,
     }),
 });
