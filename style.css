@@ -1,6 +1,13 @@
+html{
+    font-size: 12.5px;
+}
+
 .map {
     width: 100%;
     height: 400px;
+    margin: 5px;
+    display: inline-block;
+    
 }
 
 a.skiplink {
@@ -27,4 +34,37 @@ a.skiplink:focus {
 
 button{
     margin: 7px 2px;
+}
+
+img{
+    height: 50px;
+    width: 50px;
+}
+
+#belsisUstBar{
+    width: 100%;
+    background-color: #10777e;
+    margin: 3px;
+    height: 4rem;
+    display: -webkit-inline-box;
+}
+
+#logo{
+    height: 4rem;
+    width: 4rem;
+    text-align: left;
+    
+}
+
+#baslik{
+    height: 4rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+
+#textBaslik{
+    color: white;
+    font-size: 2rem;
 }
