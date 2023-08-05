@@ -4,6 +4,9 @@ import { Draw, Modify, Snap } from 'ol/interaction.js';
 import { OSM, Vector as VectorSource } from 'ol/source.js';
 import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer.js';
 import { get } from 'ol/proj.js';
+import { toStringHDMS } from 'ol/coordinate';
+import { toLonLat } from 'ol/proj';
+
 
 const raster = new TileLayer({
     source: new OSM(),
@@ -50,19 +53,33 @@ function addInteractions() {
     map.addInteraction(draw);
     snap = new Snap({ source: source });
     map.addInteraction(snap);
+    draw.addEventListener("drawend", onDrawEnd);
 }
 
 // ZOOM BUTON KONTROLLERI
-document.getElementById("zoom-out").addEventListener("click", function (){
+document.getElementById("zoom-out").addEventListener("click", function () {
     const view = map.getView();
     const zoom = view.getZoom();
     view.setZoom(zoom - 1);
 });
-document.getElementById("zoom-in").addEventListener("click", function(){
+document.getElementById("zoom-in").addEventListener("click", function () {
     const view = map.getView();
     const zoom = view.getZoom();
     view.setZoom(zoom + 1);
 })
+
+function onDrawEnd(event) {
+    var feature = event.feature; // Çizilen nesne
+    var geometry = feature.getGeometry(); // Geometriyi al
+    console.log("geometry:",geometry);
+    var coordinates = geometry.getCoordinates(); // Koordinatları al
+
+    console.log("Çizilen nesne geometrisi: ", geometry.getType());
+    console.log("Koordinatlar: ", coordinates);
+    const hdms = toStringHDMS(toLonLat(coordinates));
+    console.log("koordinatlarin uzunluk:",coordinates.length);
+    console.log(hdms);
+}
 
 
 /**
