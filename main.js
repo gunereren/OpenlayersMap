@@ -53,8 +53,18 @@ function addInteractions() {
     map.addInteraction(draw);
     snap = new Snap({ source: source });
     map.addInteraction(snap);
-    draw.addEventListener("drawend", onDrawEnd);
+    draw.addEventListener("drawend", onDrawEnd);            // çizme işlemi bitince tetiklenecek
+    draw.addEventListener("drawend", function openPopup() {
+        const popup = document.getElementById("popup");
+        popup.style.display = "block";
+    });
 }
+
+
+const closePopupButton = document.getElementById('closePopupButton');
+closePopupButton.addEventListener('click', () => {
+    popup.style.display = 'none';
+});
 
 // ZOOM BUTON KONTROLLERI
 document.getElementById("zoom-out").addEventListener("click", function () {
@@ -76,8 +86,7 @@ function onDrawEnd(event) {
 
     console.log("Çizilen nesne geometrisi: ", geometry.getType());
     console.log("Koordinatlar: ", coordinates);
-    const hdms = toStringHDMS(toLonLat(coordinates));
-    console.log("koordinatlarin uzunluk:",coordinates.length);
+    const hdms = toStringHDMS(toLonLat(coordinates));       // koordinatları çevirme işlemi
     console.log(hdms);
 }
 

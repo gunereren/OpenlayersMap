@@ -72,3 +72,19 @@ img{
 label{
     font-size: 1.25rem;
 }
+
+/* Popup stilini burada tanımlayabilirsiniz */
+.popup {
+    width: 80%;
+    height: 50%;
+    position: fixed;                                    /* Popup'ın ekranda sabit durmasını sağlıyor */
+    top: 50%;                                           /* Popup'ın dikey olarak ortada durmasını sağlıyor */
+    left: 50%;                                          /* Popup'ın yatay olarak ortada durmasını sağlıyor */
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: none;
+}
