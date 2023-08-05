@@ -73,13 +73,27 @@ label{
     font-size: 1.25rem;
 }
 
+#popupBackground{
+    height: 100%;
+    width: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
 /* Popup stilini burada tanımlayabilirsiniz */
 .popup {
     width: 80%;
     height: 50%;
-    position: fixed;                                    /* Popup'ın ekranda sabit durmasını sağlıyor */
-    top: 50%;                                           /* Popup'ın dikey olarak ortada durmasını sağlıyor */
-    left: 50%;                                          /* Popup'ın yatay olarak ortada durmasını sağlıyor */
+    position: fixed;
+    /* Popup'ın ekranda sabit durmasını sağlıyor */
+    top: 50%;
+    /* Popup'ın dikey olarak ortada durmasını sağlıyor */
+    left: 50%;
+    /* Popup'ın yatay olarak ortada durmasını sağlıyor */
     transform: translate(-50%, -50%);
     background-color: #fff;
     padding: 20px;

@@ -56,7 +56,9 @@ function addInteractions() {
     draw.addEventListener("drawend", onDrawEnd);            // çizme işlemi bitince tetiklenecek
     draw.addEventListener("drawend", function openPopup() {
         const popup = document.getElementById("popup");
+        const popupbackground = document.getElementById("popupBackground");
         popup.style.display = "block";
+        popupbackground.style.display = "block";
     });
 }
 
@@ -64,6 +66,8 @@ function addInteractions() {
 const closePopupButton = document.getElementById('closePopupButton');
 closePopupButton.addEventListener('click', () => {
     popup.style.display = 'none';
+    const popupBackground = document.getElementById("popupBackground");
+    popupBackground.style.display = "none";
 });
 
 // ZOOM BUTON KONTROLLERI
