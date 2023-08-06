@@ -7,6 +7,9 @@
     <title>Openlayers Map Deneme</title>
     <link rel="stylesheet" href="node_modules/ol/ol.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -21,11 +24,22 @@
             </p>
         </div>
     </div>
-    <div id="map" class="map" tabindex="0"></div>
+    <div id="map" class="map" tabindex="1"></div>
     <div id="popupBackground">
         <div class="popup" id="popup">
-            Popup Deneme
-            <button id="closePopupButton">X</button>
+            <div id="contents">
+                Şehir <br>
+                <input type="text" class="inputBox">
+                <br>
+                İlçe <br>
+                <input type="text" class="inputBox">
+                <br>
+                Mahalle <br>
+                <input type="text" class="inputBox">
+            </div>
+            <button id="closePopupButton">
+                <i class="fa-solid fa-xmark" style="color: #7a8190;"></i>
+            </button>
         </div>
     </div>
 
