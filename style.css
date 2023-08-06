@@ -1,4 +1,4 @@
-html{
+html {
     font-size: 12.5px;
 }
 
@@ -7,7 +7,7 @@ html{
     height: 400px;
     margin: 5px;
     display: inline-block;
-    
+
 }
 
 a.skiplink {
@@ -32,16 +32,16 @@ a.skiplink:focus {
     outline: #4A74A8 solid 0.15em;
 }
 
-button{
+button {
     margin: 7px 2px;
 }
 
-img{
+img {
     height: 50px;
     width: 50px;
 }
 
-#belsisUstBar{
+#belsisUstBar {
     width: 100%;
     background-color: #10777e;
     margin: 3px;
@@ -49,14 +49,14 @@ img{
     display: -webkit-inline-box;
 }
 
-#logo{
+#logo {
     height: 4rem;
     width: 4rem;
     text-align: left;
-    
+
 }
 
-#baslik{
+#baslik {
     height: 4rem;
     text-align: center;
     display: flex;
@@ -64,16 +64,16 @@ img{
     margin-left: 0.5rem;
 }
 
-#textBaslik{
+#textBaslik {
     color: white;
     font-size: 2rem;
 }
 
-label{
+label {
     font-size: 1.25rem;
 }
 
-#popupBackground{
+#popupBackground {
     height: 100%;
     width: 100%;
     display: none;
@@ -106,21 +106,43 @@ label{
     border-radius: 1rem;
 }
 
-#closePopupButton{
+#closePopupButton {
     position: fixed;
     right: 0;
     top: 0;
     margin: 0.5rem;
     padding: 0.1rem 0.2rem;
     border: none;
-    color:rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.6);
 }
 
-.inputBox{
+#closePopupButton:hover {
+    color: rgba(0, 0, 0);
+}
+
+.inputBox {
     box-sizing: border-box;
     position: relative;
     width: 100%;
     height: 2.5rem;
     right: 0px;
     margin-bottom: 1rem;
+}
+
+.btn {
+    box-sizing: border-box;
+    width: 100%;
+    height: 3.5rem;
+    background-color: #4baf4f;
+    color: white;
+    border-radius: 3px;
+    border: none;
+}
+
+#saveParcel:hover {
+    background-color: #3d8f40;
+}
+
+#updateDeleteBtn{
+    display: none;
 }
