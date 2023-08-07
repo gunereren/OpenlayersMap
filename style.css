@@ -193,9 +193,18 @@ select {
     border-radius: 5px;
 }
 
+select:hover {
+    background-color: #ff711e;
+}
+
+#mainEditButton:hover {
+    background-color: #ff711e;
+}
+
 #mainEditButton {
     padding: 0.75rem 2.5rem;
     background-color: #f4511d;
     color: white;
     border-radius: 5px;
+    border-width: 1px;
 }
