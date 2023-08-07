@@ -217,7 +217,7 @@ option {
     font-size: 1rem;
     line-height: 2rem;
     width: 30%;
-    height: 40%;
+    height: 50%;
     position: fixed;    /* Popup'ın ekranda sabit durmasını sağlıyor */
     top: 50%;           /* Popup'ın dikey olarak ortada durmasını sağlıyor */
     left: 50%;          /* Popup'ın yatay olarak ortada durmasını sağlıyor */
@@ -229,4 +229,26 @@ option {
     z-index: 9999;
     display: none;
     border-radius: 1rem;
+}
+
+#editingClosePopupButton {
+    font-size: 1.5rem;
+    position: fixed;
+    right: 1.5rem;
+    top: 1.5rem;
+    margin: 0.5rem;
+    padding: 0.1rem 0.2rem;
+    border: none;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+#editingClosePopupButton:hover {
+    color: rgba(0, 0, 0);
+}
+
+#updateCancelBtns{
+    font-size: 1.25rem;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    margin-left: 1rem;
 }
