@@ -86,13 +86,7 @@ saveParcelBtn.addEventListener("click", function () {
     duzenleButon.style = "margin:0 1rem; text-align: center;"
     huc4.appendChild(duzenleButon);
     duzenleButon.id = "tableEditBtn";
-    // TABLODA OLAN EDİT BUTONUNA TIKLAYINCA ÇALIŞAN
-    duzenleButon.onclick = function () {
-        const editingPopup = document.getElementById("editingPopup");
-        const popupbackground = document.getElementById("popupBackground");
-        editingPopup.style.display = "block";
-        popupbackground.style.display = "block";
-    };
+    duzenleButon.onclick = editingPopup;
 
     var silButon = document.createElement("button");            // Delete butonu
     silButon.innerHTML = "<i class=\"fa-solid fa-xmark\" style=\"color: #000000;\"></i> Delete";
@@ -106,6 +100,25 @@ saveParcelBtn.addEventListener("click", function () {
     popup.style.display = 'none';
     popupBackground.style.display = "none";
 });
+
+// TABLODA OLAN EDİT BUTONUNA TIKLAYINCA ÇALIŞAN
+function editingPopup() {
+    const editingPopup = document.getElementById("editingPopup");
+    const popupbackground = document.getElementById("popupBackground");
+    editingPopup.style.display = "block";
+    popupbackground.style.display = "block";
+
+    const closeBtn = document.getElementById("editingClosePopupButton");
+    closeBtn.onclick = editingPopupClose;
+};
+
+function editingPopupClose(){
+    const editingPopup = document.getElementById("editingPopup");
+    editingPopup.style.display = "none";
+
+    const popupBackground = document.getElementById("popupBackground");
+    popupBackground.style.display = "none";
+}
 
 // POPUP KAPATMA BUTONU
 const closePopupButton = document.getElementById('closePopupButton');
