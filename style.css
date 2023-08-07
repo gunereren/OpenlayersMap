@@ -208,3 +208,7 @@ select:hover {
     border-radius: 5px;
     border-width: 1px;
 }
+
+option{
+    background-color: #87bb88;
+}
