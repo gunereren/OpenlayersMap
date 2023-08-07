@@ -60,13 +60,22 @@ function addInteractions() {
         const popupbackground = document.getElementById("popupBackground");
         popup.style.display = "block";
         popupbackground.style.display = "block";
-        saveParcelBtn.addEventListener("click", function () {
-            // Parseli kaydet butonuna basınca olacaklar
-            alert("hw");
-        })
     });
 }
 
+// Parseli kaydet butonuna basınca olacaklar
+saveParcelBtn.addEventListener("click", function () {
+    var inputElements = document.getElementsByClassName("inputBox");
+
+    for (var i = 0; i < inputElements.length; i++) {
+        console.log("Input",i+1 ,"değeri: " + inputElements[i].value);
+        inputElements[i].value = "";
+    }
+
+    document.getElementsByClassName("inputBox").value = "";
+    popup.style.display = 'none';
+    popupBackground.style.display = "none";
+});
 
 const closePopupButton = document.getElementById('closePopupButton');
 closePopupButton.addEventListener('click', () => {
