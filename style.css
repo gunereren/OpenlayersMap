@@ -73,6 +73,10 @@ label {
     font-size: 1.25rem;
 }
 
+form {
+    margin: 1rem 0;
+}
+
 #popupBackground {
     height: 100%;
     width: 100%;
@@ -143,6 +147,25 @@ label {
     background-color: #3d8f40;
 }
 
-#updateDeleteBtn{
+#updateDeleteBtn {
     display: none;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+td,
+th {
+    border: 1px solid black;
+    height: 2.5rem;
+}
+
+.satir{
+    background-color: white;
+}
+
+#editDelete{
+    margin: 0 1rem;
+    align-items: center;
 }

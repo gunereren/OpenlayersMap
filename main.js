@@ -8,6 +8,7 @@ import { toStringHDMS } from 'ol/coordinate';
 import { toLonLat } from 'ol/proj';
 
 
+const saveParcelBtn = document.getElementById("saveParcel");
 const raster = new TileLayer({
     source: new OSM(),
 });
@@ -59,6 +60,10 @@ function addInteractions() {
         const popupbackground = document.getElementById("popupBackground");
         popup.style.display = "block";
         popupbackground.style.display = "block";
+        saveParcelBtn.addEventListener("click", function () {
+            // Parseli kaydet butonuna basınca olacaklar
+            alert("hw");
+        })
     });
 }
 
@@ -80,7 +85,7 @@ document.getElementById("zoom-in").addEventListener("click", function () {
     const view = map.getView();
     const zoom = view.getZoom();
     view.setZoom(zoom + 1);
-})
+});
 
 function onDrawEnd(event) {
     var feature = event.feature; // Çizilen nesne
