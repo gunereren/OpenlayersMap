@@ -151,8 +151,15 @@ form {
     display: none;
 }
 
-table{
+table {
     border-collapse: collapse;
+    font-size: 1.25rem;
+}
+
+#tableDiv {
+    height: 20rem;
+    overflow: auto;
+
 }
 
 td,
@@ -161,11 +168,12 @@ th {
     height: 2.5rem;
 }
 
-.satir{
+.satir {
     background-color: white;
+    display: none;
 }
 
-#editDelete{
+#editDelete {
     margin: 0 1rem;
     align-items: center;
 }
