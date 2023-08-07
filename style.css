@@ -74,7 +74,7 @@ label {
 }
 
 form {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
 }
 
 #popupBackground {
@@ -159,7 +159,7 @@ table {
 #tableDiv {
     height: 20rem;
     overflow: auto;
-
+    border: solid black 1px;
 }
 
 td,
@@ -176,4 +176,26 @@ th {
 #editDelete {
     margin: 0 1rem;
     align-items: center;
+}
+
+#geometryType {
+    background-color: #05aa6e;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+select {
+    padding: 0.75rem;
+    background-color: #f4511d;
+    color: white;
+    border-radius: 5px;
+}
+
+#mainEditButton {
+    padding: 0.75rem 2.5rem;
+    background-color: #f4511d;
+    color: white;
+    border-radius: 5px;
 }

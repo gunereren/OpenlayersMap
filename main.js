@@ -68,6 +68,7 @@ saveParcelBtn.addEventListener("click", function () {
     var inputElements = document.getElementsByClassName("inputBox");
     var tablo = document.getElementById("table");
     var yeniSatir = tablo.insertRow(tablo.rows.length);
+    yeniSatir.style="background-color: white;"
 
     var huc1 = yeniSatir.insertCell(0);                     
     var huc2 = yeniSatir.insertCell(1);
