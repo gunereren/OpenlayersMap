@@ -9,6 +9,8 @@ import { toLonLat } from 'ol/proj';
 
 
 const saveParcelBtn = document.getElementById("saveParcel");
+const mainEditBtn = document.getElementById("mainEditButton");
+
 const raster = new TileLayer({
     source: new OSM(),
 });
@@ -68,9 +70,9 @@ saveParcelBtn.addEventListener("click", function () {
     var inputElements = document.getElementsByClassName("inputBox");
     var tablo = document.getElementById("table");
     var yeniSatir = tablo.insertRow(tablo.rows.length);
-    yeniSatir.style="background-color: white;"
+    yeniSatir.style = "background-color: white;"
 
-    var huc1 = yeniSatir.insertCell(0);                     
+    var huc1 = yeniSatir.insertCell(0);
     var huc2 = yeniSatir.insertCell(1);
     var huc3 = yeniSatir.insertCell(2);
     var huc4 = yeniSatir.insertCell(3);
@@ -81,12 +83,21 @@ saveParcelBtn.addEventListener("click", function () {
 
     var duzenleButon = document.createElement("button");        // Edit butonu
     duzenleButon.innerHTML = '<i class="fa-regular fa-pen-to-square"></i> Edit';
-    duzenleButon.style ="margin:0 1rem; text-align: center;"
+    duzenleButon.style = "margin:0 1rem; text-align: center;"
     huc4.appendChild(duzenleButon);
+    duzenleButon.id = "tableEditBtn";
+    // TABLODA OLAN EDİT BUTONUNA TIKLAYINCA ÇALIŞAN
+    duzenleButon.onclick = function () {
+        const editingPopup = document.getElementById("editingPopup");
+        const popupbackground = document.getElementById("popupBackground");
+        editingPopup.style.display = "block";
+        popupbackground.style.display = "block";
+    };
 
     var silButon = document.createElement("button");            // Delete butonu
     silButon.innerHTML = "<i class=\"fa-solid fa-xmark\" style=\"color: #000000;\"></i> Delete";
     huc4.appendChild(silButon);
+    silButon.id = "deleteBtn";
 
     for (var i = 0; i < inputElements.length; i++) {                    // Girilen değerleri okuyup inputBox'ı temizleyen döngü
         console.log("Input", i + 1, "değeri: " + inputElements[i].value);
@@ -127,6 +138,13 @@ function onDrawEnd(event) {
     const hdms = toStringHDMS(toLonLat(coordinates));       // koordinatları çevirme işlemi
     console.log(hdms);
 }
+
+// ANA EKRANDA DURAN BÜYÜK EDİT BUTONU
+mainEditBtn.addEventListener("click", function () {
+    alert("BURASI DÜZELTİLECEK");
+});
+
+
 
 
 /**

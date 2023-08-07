@@ -42,24 +42,29 @@
             <button class="btn" id="updateDeleteBtn">Parseli Güncelle</button>
             <button class="btn" id="updateDeleteBtn">Parseli Sil</button>
         </div>
+
+        <div id="editingPopup">
+
+        </div>
     </div>
 
     <!-- BUTONLAR -->
     <button id="zoom-out">Zoom out</button>
     <button id="zoom-in">Zoom in</button>
-
+    <br>
     <!-- FORM KISMI (Harita cizim tipi) -->
-    <form>
+    <form style="width: auto; display: inline-block;">
         <label id="geometryType" for="type">Geometry type:</label>
         <select id="type">
             <option value="Point">Point</option>
-            <option value="LineString">LineString</option>
             <option value="Polygon">Polygon</option>
+            <option value="LineString">LineString</option>
         </select>
-        <button id="mainEditButton">
-            Edit
-        </button>
     </form>
+
+    <button id="mainEditButton">
+        Edit
+    </button>
 
     <div id="tableDiv">
         <table id="table" class="table" width=100%; style=" background-color: #eceaea; ">
@@ -84,5 +89,4 @@
     <script type="module" src="main.js"></script>
 
 </body>
-
 </html>

@@ -209,6 +209,24 @@ select:hover {
     border-width: 1px;
 }
 
-option{
+option {
     background-color: #87bb88;
+}
+
+#editingPopup {
+    font-size: 1rem;
+    line-height: 2rem;
+    width: 30%;
+    height: 40%;
+    position: fixed;    /* Popup'ın ekranda sabit durmasını sağlıyor */
+    top: 50%;           /* Popup'ın dikey olarak ortada durmasını sağlıyor */
+    left: 50%;          /* Popup'ın yatay olarak ortada durmasını sağlıyor */
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: none;
+    border-radius: 1rem;
 }
