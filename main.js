@@ -96,6 +96,7 @@ saveParcelBtn.addEventListener("click", function () {
     popupBackground.style.display = "none";
 });
 
+// POPUP KAPATMA BUTONU
 const closePopupButton = document.getElementById('closePopupButton');
 closePopupButton.addEventListener('click', () => {
     popup.style.display = 'none';
