@@ -7,7 +7,6 @@ import { get } from 'ol/proj.js';
 import { toStringHDMS } from 'ol/coordinate';
 import { toLonLat } from 'ol/proj';
 
-
 const saveParcelBtn = document.getElementById("saveParcel");
 const mainEditBtn = document.getElementById("mainEditButton");
 var sayac = 0;
@@ -97,7 +96,12 @@ saveParcelBtn.addEventListener("click", function () {
     var silButon = document.createElement("button");            // Delete butonu
     silButon.innerHTML = "<i class=\"fa-solid fa-xmark\" style=\"color: #000000;\"></i> Delete";
     huc4.appendChild(silButon);
-    silButon.id = "deleteBtn";
+    silButon.id = "deleteBtn"+sayac;
+
+    silButon.onclick = function () {
+        var deleteId = silButon.id;
+        deleteRow(deleteId);
+    };
 
     for (var i = 0; i < inputElements.length; i++) {                    // Girilen değerleri okuyup inputBox'ı temizleyen döngü
         console.log("Input", i + 1, "değeri: " + inputElements[i].value);
@@ -107,6 +111,12 @@ saveParcelBtn.addEventListener("click", function () {
     popupBackground.style.display = "none";
     sayac++;
 });
+
+function deleteRow(deleteBtnId) {
+    var deleteBtn = document.getElementById(deleteBtnId);
+    var currentRow = deleteBtn.parentNode.parentNode;
+    currentRow.parentNode.removeChild(currentRow);
+}
 
 // TABLODA OLAN EDİT BUTONUNA TIKLAYINCA ÇALIŞAN
 function editingPopup(btnID) {
@@ -128,12 +138,14 @@ function editWithPopup(editBtn) {
     var hucreler = currentPopup.getElementsByTagName('td');
 
     for (var i = 0; i < hucreler.length - 1; i++) {
+        // edit popup'ında inputBox'ları dolduran döngü
         var editInputID = "editInput" + (i + 1);
         var inputBox = document.getElementById(editInputID);
         inputBox.value = hucreler[i].textContent;
     }
 }
 
+// DÜZENLEME POPUP KAPATMA BUTONU
 function editingPopupClose() {
     const editingPopup = document.getElementById("editingPopup");
     editingPopup.style.display = "none";
@@ -179,12 +191,7 @@ mainEditBtn.addEventListener("click", function () {
     alert("BURASI DÜZELTİLECEK");
 });
 
-
-
-
-/**
- * Handle change event.
- */
+// Handle change event.
 typeSelect.onchange = function () {
     map.removeInteraction(draw);
     map.removeInteraction(snap);
