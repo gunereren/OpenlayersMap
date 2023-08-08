@@ -108,11 +108,31 @@ function editingPopup() {
     editingPopup.style.display = "block";
     popupbackground.style.display = "block";
 
+    var editBtn = document.getElementById("tableEditBtn");
+    editBtn.onclick = editWithPopup(editBtn);
+
+
     const closeBtn = document.getElementById("editingClosePopupButton");
     closeBtn.onclick = editingPopupClose;
 };
 
-function editingPopupClose(){
+function editWithPopup(buton) {
+    var currentPopup = buton.parentNode.parentNode;
+
+    var hucreler = currentPopup.getElementsByTagName('td');
+    var input1 = document.getElementById('editInput1');
+    var input2 = document.getElementById('editInput2');
+    var input3 = document.getElementById('editInput3');
+
+    for (var i = 0; i < hucreler.length - 1; i++) {
+        var inputID = "editInput" + (i + 1);
+        var inputBox = document.getElementById(inputID);
+        inputBox.value = hucreler[i].textContent;
+    }
+
+}
+
+function editingPopupClose() {
     const editingPopup = document.getElementById("editingPopup");
     editingPopup.style.display = "none";
 

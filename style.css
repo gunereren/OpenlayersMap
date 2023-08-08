@@ -218,9 +218,12 @@ option {
     line-height: 2rem;
     width: 30%;
     height: 50%;
-    position: fixed;    /* Popup'ın ekranda sabit durmasını sağlıyor */
-    top: 50%;           /* Popup'ın dikey olarak ortada durmasını sağlıyor */
-    left: 50%;          /* Popup'ın yatay olarak ortada durmasını sağlıyor */
+    position: fixed;
+    /* Popup'ın ekranda sabit durmasını sağlıyor */
+    top: 50%;
+    /* Popup'ın dikey olarak ortada durmasını sağlıyor */
+    left: 50%;
+    /* Popup'ın yatay olarak ortada durmasını sağlıyor */
     transform: translate(-50%, -50%);
     background-color: #f0f0f0;
     padding: 1.5rem;
@@ -246,9 +249,18 @@ option {
     color: rgba(0, 0, 0);
 }
 
-#updateCancelBtns{
+.updateCancelBtns {
     font-size: 1.25rem;
     padding: 1rem 1rem;
     border-radius: 5px;
     margin-left: 1rem;
+}
+
+.editInputBox {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 2.5rem;
+    right: 0px;
+    margin-bottom: 1rem;
 }
