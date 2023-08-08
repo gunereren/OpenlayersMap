@@ -10,6 +10,7 @@ import { DrawEvent } from 'ol/interaction/Draw';
 
 const saveParcelBtn = document.getElementById("saveParcel");
 const mainEditBtn = document.getElementById("mainEditButton");
+const cancelBtn = document.getElementById("cancelBtn");
 var sayac = 0;
 
 const raster = new TileLayer({
@@ -141,6 +142,7 @@ function editingPopup(btnID) {
 };
 
 function editWithPopup(editBtn) {
+    cancelBtn.onclick = editingPopupClose;
     var currentPopup = editBtn.parentNode.parentNode;
     var hucreler = currentPopup.getElementsByTagName('td');
 
