@@ -87,9 +87,12 @@ saveParcelBtn.addEventListener("click", function () {
     duzenleButon.innerHTML = '<i class="fa-regular fa-pen-to-square"></i> Edit';
     duzenleButon.style = "margin:0 1rem; text-align: center;"
     huc4.appendChild(duzenleButon);
-    duzenleButon.id = "tableEditBtn";
-    duzenleButon.onclick = editingPopup;
+    duzenleButon.id = "tableEditBtn"+sayac;
     
+    duzenleButon.onclick = function () {
+        var id = duzenleButon.id;
+        editingPopup(id);
+    };    
 
     var silButon = document.createElement("button");            // Delete butonu
     silButon.innerHTML = "<i class=\"fa-solid fa-xmark\" style=\"color: #000000;\"></i> Delete";
@@ -106,23 +109,22 @@ saveParcelBtn.addEventListener("click", function () {
 });
 
 // TABLODA OLAN EDİT BUTONUNA TIKLAYINCA ÇALIŞAN
-function editingPopup() {
+function editingPopup(btnID) {
     const editingPopup = document.getElementById("editingPopup");
     const popupbackground = document.getElementById("popupBackground");
     editingPopup.style.display = "block";
     popupbackground.style.display = "block";
 
-    var editBtn = document.getElementById("tableEditBtn");
-    editBtn.onclick = editWithPopup(editBtn);
+    var editBtn = document.getElementById(btnID);
+    editWithPopup(editBtn)
 
 
     const closeBtn = document.getElementById("editingClosePopupButton");
     closeBtn.onclick = editingPopupClose;
 };
 
-function editWithPopup(buton) {
-    var currentPopup = buton.parentNode.parentNode;
-    console.log(buton.parentNode.parentNode);
+function editWithPopup(editBtn) {
+    var currentPopup = editBtn.parentNode.parentNode;
     var hucreler = currentPopup.getElementsByTagName('td');
 
     for (var i = 0; i < hucreler.length - 1; i++) {
