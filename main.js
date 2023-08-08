@@ -9,6 +9,8 @@ import { toLonLat } from 'ol/proj';
 
 
 const saveParcelBtn = document.getElementById("saveParcel");
+const mainEditBtn = document.getElementById("mainEditButton");
+
 const raster = new TileLayer({
     source: new OSM(),
 });
@@ -60,14 +62,85 @@ function addInteractions() {
         const popupbackground = document.getElementById("popupBackground");
         popup.style.display = "block";
         popupbackground.style.display = "block";
-        saveParcelBtn.addEventListener("click", function () {
-            // Parseli kaydet butonuna basınca olacaklar
-            alert("hw");
-        })
     });
 }
 
+// PARSELİ KAYDET BUTONUNA BASINCA OLACAKLAR
+saveParcelBtn.addEventListener("click", function () {
+    var inputElements = document.getElementsByClassName("inputBox");
+    var tablo = document.getElementById("table");
+    var yeniSatir = tablo.insertRow(tablo.rows.length);
+    yeniSatir.style = "background-color: white;"
 
+    var huc1 = yeniSatir.insertCell(0);
+    var huc2 = yeniSatir.insertCell(1);
+    var huc3 = yeniSatir.insertCell(2);
+    var huc4 = yeniSatir.insertCell(3);
+
+    huc1.innerHTML = inputElements[0].value;
+    huc2.innerHTML = inputElements[1].value;
+    huc3.innerHTML = inputElements[2].value;
+
+    var duzenleButon = document.createElement("button");        // Edit butonu
+    duzenleButon.innerHTML = '<i class="fa-regular fa-pen-to-square"></i> Edit';
+    duzenleButon.style = "margin:0 1rem; text-align: center;"
+    huc4.appendChild(duzenleButon);
+    duzenleButon.id = "tableEditBtn";
+    duzenleButon.onclick = editingPopup;
+
+    var silButon = document.createElement("button");            // Delete butonu
+    silButon.innerHTML = "<i class=\"fa-solid fa-xmark\" style=\"color: #000000;\"></i> Delete";
+    huc4.appendChild(silButon);
+    silButon.id = "deleteBtn";
+
+    for (var i = 0; i < inputElements.length; i++) {                    // Girilen değerleri okuyup inputBox'ı temizleyen döngü
+        console.log("Input", i + 1, "değeri: " + inputElements[i].value);
+        inputElements[i].value = "";
+    }
+    popup.style.display = 'none';
+    popupBackground.style.display = "none";
+});
+
+// TABLODA OLAN EDİT BUTONUNA TIKLAYINCA ÇALIŞAN
+function editingPopup() {
+    const editingPopup = document.getElementById("editingPopup");
+    const popupbackground = document.getElementById("popupBackground");
+    editingPopup.style.display = "block";
+    popupbackground.style.display = "block";
+
+    var editBtn = document.getElementById("tableEditBtn");
+    editBtn.onclick = editWithPopup(editBtn);
+
+
+    const closeBtn = document.getElementById("editingClosePopupButton");
+    closeBtn.onclick = editingPopupClose;
+};
+
+function editWithPopup(buton) {
+    var currentPopup = buton.parentNode.parentNode;
+
+    var hucreler = currentPopup.getElementsByTagName('td');
+    var input1 = document.getElementById('editInput1');
+    var input2 = document.getElementById('editInput2');
+    var input3 = document.getElementById('editInput3');
+
+    for (var i = 0; i < hucreler.length - 1; i++) {
+        var inputID = "editInput" + (i + 1);
+        var inputBox = document.getElementById(inputID);
+        inputBox.value = hucreler[i].textContent;
+    }
+
+}
+
+function editingPopupClose() {
+    const editingPopup = document.getElementById("editingPopup");
+    editingPopup.style.display = "none";
+
+    const popupBackground = document.getElementById("popupBackground");
+    popupBackground.style.display = "none";
+}
+
+// POPUP KAPATMA BUTONU
 const closePopupButton = document.getElementById('closePopupButton');
 closePopupButton.addEventListener('click', () => {
     popup.style.display = 'none';
@@ -90,7 +163,7 @@ document.getElementById("zoom-in").addEventListener("click", function () {
 function onDrawEnd(event) {
     var feature = event.feature; // Çizilen nesne
     var geometry = feature.getGeometry(); // Geometriyi al
-    console.log("geometry:",geometry);
+    console.log("geometry:", geometry);
     var coordinates = geometry.getCoordinates(); // Koordinatları al
 
     console.log("Çizilen nesne geometrisi: ", geometry.getType());
@@ -98,6 +171,13 @@ function onDrawEnd(event) {
     const hdms = toStringHDMS(toLonLat(coordinates));       // koordinatları çevirme işlemi
     console.log(hdms);
 }
+
+// ANA EKRANDA DURAN BÜYÜK EDİT BUTONU
+mainEditBtn.addEventListener("click", function () {
+    alert("BURASI DÜZELTİLECEK");
+});
+
+
 
 
 /**

@@ -28,13 +28,13 @@
     <div id="popupBackground">
         <div class="popup" id="popup">
             Şehir <br>
-            <input type="text" class="inputBox" id="inputBox1">
+            <input type="text" class="inputBox" id="input1">
             <br>
             İlçe <br>
-            <input type="text" class="inputBox" id="inputBox2">
+            <input type="text" class="inputBox" id="input2">
             <br>
             Mahalle <br>
-            <input type="text" class="inputBox" id="inputBox3">
+            <input type="text" class="inputBox" id="input3">
             <button id="closePopupButton">
                 <i class="fa-solid fa-xmark" style="color: #7a8190;"></i>
             </button>
@@ -42,24 +42,59 @@
             <button class="btn" id="updateDeleteBtn">Parseli Güncelle</button>
             <button class="btn" id="updateDeleteBtn">Parseli Sil</button>
         </div>
+
+        <div id="editingPopup">
+            <div>
+                <p style="font-size: 2rem; text-align: center;">Edit</p>
+                <button id="editingClosePopupButton">
+                    <i class="fa-solid fa-xmark" style="color: #7a8190;"></i>
+                </button>
+            </div>
+
+            Şehir <br>
+            <input type="text" class="editInputBox" id="editInput1">
+            <br>
+            İlçe <br>
+            <input type="text" class="editInputBox" id="editInput2">
+            <br>
+            Mahalle <br>
+            <input type="text" class="editInputBox" id="editInput3">
+
+            <div style="text-align: right;">
+                <button class="updateCancelBtns" style="background-color: #f96156; color: white;">
+                    <i class="fa-solid fa-check"></i>
+                    Update
+                </button>
+
+                <button class="updateCancelBtns" style="color: black;">
+                    <i class="fa-solid fa-ban"></i>
+                    Cancel
+                </button>
+            </div>
+
+        </div>
     </div>
 
     <!-- BUTONLAR -->
     <button id="zoom-out">Zoom out</button>
     <button id="zoom-in">Zoom in</button>
-
+    <br>
     <!-- FORM KISMI (Harita cizim tipi) -->
-    <form>
-        <label for="type">Geometry type &nbsp;</label>
+    <form style="width: auto; display: inline-block;">
+        <label id="geometryType" for="type">Geometry type:</label>
         <select id="type">
             <option value="Point">Point</option>
-            <option value="LineString">LineString</option>
             <option value="Polygon">Polygon</option>
+            <option value="LineString">LineString</option>
         </select>
     </form>
 
-    <div>
-        <table class="table" width=100%; style=" background-color: #eceaea; ">
+    <button id="mainEditButton">
+        Edit
+    </button>
+
+    <div id="tableDiv">
+        <table id="table" class="table" width=100%; style=" background-color: #eceaea; ">
             <colgroup>
                 <col style="width: 16.66%; border: solid black 1px;">
                 <col style="width: 16.66%;">
@@ -71,23 +106,6 @@
                 <th>Parsel İlçe</th>
                 <th>Parsel Mahalle</th>
                 <th></th>
-            </tr>
-            <tr class="satir">
-                <td>asd</td>
-                <td>dfg</td>
-                <td>ghj</td>
-                <td>
-                    <button id="editDelete">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                        Edit
-                    </button>
-
-                    <button id="editDelete">
-                        <i class="fa-solid fa-xmark" style="color: #000000;"></i>
-                        Delete
-                    </button>
-
-                </td>
             </tr>
         </table>
     </div>
