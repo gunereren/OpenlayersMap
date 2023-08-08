@@ -10,6 +10,7 @@ import { toLonLat } from 'ol/proj';
 
 const saveParcelBtn = document.getElementById("saveParcel");
 const mainEditBtn = document.getElementById("mainEditButton");
+var sayac = 0;
 
 const raster = new TileLayer({
     source: new OSM(),
@@ -71,6 +72,7 @@ saveParcelBtn.addEventListener("click", function () {
     var tablo = document.getElementById("table");
     var yeniSatir = tablo.insertRow(tablo.rows.length);
     yeniSatir.style = "background-color: white;"
+    yeniSatir.id = "tr"+sayac;
 
     var huc1 = yeniSatir.insertCell(0);
     var huc2 = yeniSatir.insertCell(1);
@@ -87,6 +89,7 @@ saveParcelBtn.addEventListener("click", function () {
     huc4.appendChild(duzenleButon);
     duzenleButon.id = "tableEditBtn";
     duzenleButon.onclick = editingPopup;
+    
 
     var silButon = document.createElement("button");            // Delete butonu
     silButon.innerHTML = "<i class=\"fa-solid fa-xmark\" style=\"color: #000000;\"></i> Delete";
@@ -99,6 +102,7 @@ saveParcelBtn.addEventListener("click", function () {
     }
     popup.style.display = 'none';
     popupBackground.style.display = "none";
+    sayac++;
 });
 
 // TABLODA OLAN EDİT BUTONUNA TIKLAYINCA ÇALIŞAN
@@ -118,18 +122,14 @@ function editingPopup() {
 
 function editWithPopup(buton) {
     var currentPopup = buton.parentNode.parentNode;
-
+    console.log(buton.parentNode.parentNode);
     var hucreler = currentPopup.getElementsByTagName('td');
-    var input1 = document.getElementById('editInput1');
-    var input2 = document.getElementById('editInput2');
-    var input3 = document.getElementById('editInput3');
 
     for (var i = 0; i < hucreler.length - 1; i++) {
-        var inputID = "editInput" + (i + 1);
-        var inputBox = document.getElementById(inputID);
+        var editInputID = "editInput" + (i + 1);
+        var inputBox = document.getElementById(editInputID);
         inputBox.value = hucreler[i].textContent;
     }
-
 }
 
 function editingPopupClose() {
